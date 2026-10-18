@@ -1,0 +1,65 @@
+/* D&D 5e (2014) — pergaminho, vermelho dragão e dourado */
+body[data-tema="dnd5e"] {
+  --fundo: #1b0d0d;
+  --fundo-2: #2a1414;
+  --papel: #f4ead2;
+  --tinta: #2b1a14;
+  --tinta-suave: #6e5446;
+  --texto: #f6ead3;
+  --texto-suave: #c9ad94;
+  --destaque: #d8a24a;
+  --destaque-escuro: #8e1b1b;
+  --borda: rgba(216, 162, 74, .3);
+  --fonte-titulo: 'Cinzel', Georgia, serif;
+  background:
+    radial-gradient(1000px 500px at 50% -10%, rgba(178, 34, 34, .35), transparent 70%),
+    linear-gradient(180deg, #2d1212, var(--fundo));
+  background-attachment: fixed;
+}
+body[data-tema="dnd5e"] .passo-conteudo,
+body[data-tema="dnd5e"] .ficha-d20 {
+  background: linear-gradient(180deg, #f7eedb, #efe0bf);
+  border-top: 6px solid #8e1b1b;
+}
+body[data-tema="dnd5e"] .lobby-sistema h1 { color: #e3b866; text-shadow: 0 3px 0 #5a0f0f; }
+body[data-tema="dnd5e"] .fd-topo h1 { color: #7a1515; }
+body[data-tema="dnd5e"] .fd-bloco h3 { color: #7a1515; }
+
+/* ---------- intro: d20 na mesa ---------- */
+.intro-dnd5e { background: radial-gradient(circle at 50% 60%, #3b1a12, #120806 70%); color: #f6ead3; font-family: 'Cinzel', serif; }
+.intro-dnd5e .d5-mesa {
+  position: absolute; left: 50%; top: 58%; width: 140vmax; height: 70vmax; transform: translate(-50%, 0) rotateX(70deg);
+  background: radial-gradient(ellipse, #6b2a1a 0%, #3a160e 45%, transparent 70%);
+}
+.intro-dnd5e .d5-dado-wrap { position: absolute; left: 50%; top: 50%; width: 130px; height: 130px; margin: -40px 0 0 -65px; animation: d5-quica 2.6s cubic-bezier(.3,.7,.4,1) forwards; }
+.intro-dnd5e .d5-dado { width: 100%; height: 100%; filter: drop-shadow(0 10px 14px rgba(0,0,0,.6)); animation: d5-gira 2.6s cubic-bezier(.2,.7,.3,1) forwards; }
+.intro-dnd5e .d5-num { animation: d5-num 2.6s steps(1) forwards; }
+@keyframes d5-quica {
+  0% { transform: translate(-60vw, -40vh) scale(.6); }
+  35% { transform: translate(-10vw, 0) scale(1); }
+  50% { transform: translate(5vw, -12vh) scale(1); }
+  65% { transform: translate(12vw, 0) scale(1); }
+  78% { transform: translate(6vw, -4vh); }
+  90%, 100% { transform: translate(0, 0); }
+}
+@keyframes d5-gira { 0% { transform: rotate(-720deg); } 90%, 100% { transform: rotate(0); } }
+@keyframes d5-num { 0% { opacity: .2; } 88% { opacity: 1; } }
+.intro-dnd5e .d5-critico {
+  position: absolute; left: 50%; top: 50%; transform: translate(-50%, 90px) scale(.5); opacity: 0;
+  font-family: 'Cinzel', serif; font-weight: 900; font-size: 1.6rem; color: #ffd36b; letter-spacing: .2em; text-shadow: 0 0 20px #ff9b3a;
+  animation: d5-crit .6s 2.5s ease-out forwards;
+}
+@keyframes d5-crit { to { opacity: 1; transform: translate(-50%, 90px) scale(1); } }
+.intro-dnd5e .ig-centro { margin-top: -46vh; }
+.intro-dnd5e .ig-titulo { color: #e3b866; text-shadow: 0 3px 0 #5a0f0f; font-weight: 900; }
+.intro-dnd5e .ig-frase { font-family: 'Crimson Pro', serif; font-style: italic; }
+.intro-dnd5e .ig-barra-fill { background: linear-gradient(90deg, #8e1b1b, #d8a24a); }
+.intro-dnd5e .ig-botao {
+  position: fixed; left: 50%; bottom: 12vh; transform: translate(-50%, 10px);
+  font-family: 'Cinzel', serif; font-weight: 700; font-size: 1.1rem; padding: 12px 28px; cursor: pointer;
+  color: #2b1a14; background: linear-gradient(180deg, #f1cf7f, #c9913b); border: 2px solid #5a0f0f; border-radius: 6px;
+  box-shadow: 0 0 24px rgba(216,162,74,.5);
+}
+.intro-dnd5e.pronta .ig-botao { transform: translate(-50%, 0); }
+.intro-dnd5e.saindo .d5-dado-wrap { transition: transform 1s ease-in, opacity 1s; transform: scale(8); opacity: 0; }
+.intro-dnd5e.saindo .ig-centro, .intro-dnd5e.saindo .d5-critico { transition: opacity .5s; opacity: 0; }

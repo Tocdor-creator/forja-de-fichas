@@ -1,0 +1,73 @@
+/* D&D 3.5 — pedra de masmorra, tochas e couro */
+body[data-tema="dnd35"] {
+  --fundo: #15140f;
+  --fundo-2: #23211a;
+  --papel: #ece3cc;
+  --tinta: #26211a;
+  --tinta-suave: #675c4b;
+  --texto: #ece3cc;
+  --texto-suave: #b0a48c;
+  --destaque: #e39b3c;
+  --destaque-escuro: #4f6b2c;
+  --borda: rgba(227, 155, 60, .3);
+  --fonte-titulo: 'Cinzel', Georgia, serif;
+  background:
+    radial-gradient(600px 400px at 10% 0%, rgba(227, 155, 60, .2), transparent 70%),
+    radial-gradient(600px 400px at 90% 0%, rgba(227, 155, 60, .2), transparent 70%),
+    repeating-linear-gradient(0deg, rgba(0,0,0,.25) 0 2px, transparent 2px 56px),
+    repeating-linear-gradient(90deg, rgba(0,0,0,.18) 0 2px, transparent 2px 110px),
+    linear-gradient(180deg, #2b2920, var(--fundo));
+  background-attachment: fixed;
+}
+body[data-tema="dnd35"] .passo-conteudo,
+body[data-tema="dnd35"] .ficha-d20 { background: linear-gradient(180deg, #f0e7d0, #e4d6b4); border: 2px solid #5a4a33; box-shadow: inset 0 0 0 4px #e4d6b4, inset 0 0 0 5px #5a4a33, var(--sombra); }
+body[data-tema="dnd35"] .lobby-sistema h1 { color: #e39b3c; text-shadow: 0 0 24px rgba(227,155,60,.5), 0 3px 0 #000; }
+body[data-tema="dnd35"] .fd-topo h1, body[data-tema="dnd35"] .fd-bloco h3 { color: #3f5622; }
+
+
+/* ---------- intro: portão da masmorra ---------- */
+.intro-dnd35 { background: #0d0c09; color: #ece3cc; font-family: 'Cinzel', serif; }
+.intro-dnd35 .d35-parede {
+  position: absolute; inset: 0;
+  background:
+    repeating-linear-gradient(0deg, #000 0 3px, transparent 3px 60px),
+    repeating-linear-gradient(90deg, #000 0 3px, transparent 3px 120px),
+    radial-gradient(circle at 50% 60%, #4a4232, #1a1812 70%);
+}
+.intro-dnd35 .d35-porta {
+  position: absolute; left: 50%; bottom: 0; width: min(60vw, 380px); height: 62vh; transform: translateX(-50%);
+  background: radial-gradient(ellipse at 50% 100%, #ff9a3c 0%, #6b2c0a 35%, #120b05 75%);
+  border-radius: 50% 50% 0 0 / 30% 30% 0 0; border: 10px solid #2b271e; border-bottom: 0; overflow: hidden;
+  box-shadow: inset 0 0 60px #000;
+}
+.intro-dnd35 .d35-grade {
+  position: absolute; inset: 0;
+  background: repeating-linear-gradient(90deg, transparent 0 26px, #3a352b 26px 34px), repeating-linear-gradient(0deg, transparent 0 46px, #3a352b 46px 54px);
+  transition: transform 1.5s cubic-bezier(.6,0,.3,1);
+}
+.intro-dnd35 .d35-tocha { position: absolute; top: 34%; width: 12px; height: 60px; background: linear-gradient(#5a3a1c, #2a1a0c); border-radius: 3px; }
+.intro-dnd35 .d35-tocha span {
+  position: absolute; left: 50%; top: -34px; width: 30px; height: 44px; transform: translateX(-50%);
+  background: radial-gradient(ellipse at 50% 70%, #fff3c0, #ffb13b 40%, rgba(255,90,0,0) 70%);
+  border-radius: 50% 50% 40% 40%; filter: blur(.5px);
+  box-shadow: 0 0 80px 40px rgba(255,140,40,.35);
+  animation: d35-chama .18s ease-in-out infinite alternate;
+}
+.intro-dnd35 .d35-tocha-e { left: calc(50% - min(30vw, 190px) - 60px); }
+.intro-dnd35 .d35-tocha-d { right: calc(50% - min(30vw, 190px) - 60px); }
+@keyframes d35-chama { from { transform: translateX(-50%) scale(1, 1); } to { transform: translateX(-52%) scale(1.08, .94); } }
+.intro-dnd35 .d35-poeira { position: absolute; inset: 0; background: radial-gradient(circle at 50% 95%, rgba(200,180,140,.35), transparent 40%); opacity: 0; transition: opacity 1s; }
+.intro-dnd35 .ig-centro { margin-top: -62vh; }
+.intro-dnd35 .ig-titulo { color: #e39b3c; text-shadow: 0 0 24px rgba(227,155,60,.6), 0 3px 0 #000; }
+.intro-dnd35 .ig-frase { font-family: 'Crimson Pro', serif; font-style: italic; }
+.intro-dnd35 .ig-barra-fill { background: linear-gradient(90deg, #4f6b2c, #e39b3c); }
+.intro-dnd35 .ig-botao {
+  position: fixed; left: 50%; bottom: 8vh; transform: translate(-50%, 10px);
+  font-family: 'Cinzel', serif; font-weight: 700; padding: 12px 26px; cursor: pointer;
+  color: #ece3cc; background: linear-gradient(180deg, #5a4a33, #2b241a); border: 2px solid #e39b3c; border-radius: 4px;
+}
+.intro-dnd35.pronta .ig-botao { transform: translate(-50%, 0); }
+.intro-dnd35.saindo .d35-grade { transform: translateY(-100%); }
+.intro-dnd35.saindo .d35-poeira { opacity: 1; }
+.intro-dnd35.saindo .d35-porta { transition: transform 1s .7s ease-in; transform: translateX(-50%) scale(4); }
+.intro-dnd35.saindo .ig-centro, .intro-dnd35.saindo .ig-botao { transition: opacity .4s; opacity: 0; }

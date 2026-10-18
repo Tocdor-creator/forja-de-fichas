@@ -1,0 +1,62 @@
+/* Tormenta20 — tempestade rubra sobre Arton */
+body[data-tema="tormenta20"] {
+  --fundo: #120608;
+  --fundo-2: #220b0e;
+  --papel: #f5ece4;
+  --tinta: #24100f;
+  --tinta-suave: #6d4a46;
+  --texto: #f7e9e4;
+  --texto-suave: #c8a39c;
+  --destaque: #ff4d4d;
+  --destaque-escuro: #b3121b;
+  --borda: rgba(255, 77, 77, .3);
+  --fonte-titulo: 'Cinzel', Georgia, serif;
+  background:
+    radial-gradient(1000px 500px at 50% -10%, rgba(196, 22, 28, .45), transparent 70%),
+    radial-gradient(500px 300px at 15% 20%, rgba(120, 10, 20, .4), transparent 70%),
+    linear-gradient(180deg, #2a0b10, var(--fundo));
+  background-attachment: fixed;
+}
+body[data-tema="tormenta20"] .passo-conteudo,
+body[data-tema="tormenta20"] .ficha-d20 { background: #f7efe8; border-top: 6px solid #c4161c; }
+body[data-tema="tormenta20"] .lobby-sistema h1 { color: #fff; font-weight: 900; text-shadow: 0 0 30px rgba(255, 40, 40, .8), 0 4px 0 #6b0a0f; letter-spacing: .04em; }
+body[data-tema="tormenta20"] .fd-topo h1, body[data-tema="tormenta20"] .fd-bloco h3 { color: #b3121b; }
+body[data-tema="tormenta20"] .btn-primario { background: linear-gradient(180deg, #e3262e, #9b0f16); color: #fff; }
+.t20-lista { columns: 2; column-gap: 24px; }
+.t20-lista li { break-inside: avoid; }
+@media (max-width: 600px) { .t20-lista { columns: 1; } }
+.campo-check { display: flex; gap: 8px; align-items: center; margin: 8px 0 14px; cursor: pointer; }
+.campo-check input { width: 20px; height: 20px; accent-color: var(--destaque-escuro); }
+
+/* ---------- intro: a Tormenta ---------- */
+.intro-t20 { background: #0c0305; color: #fff; font-family: 'Cinzel', serif; }
+.intro-t20 .t20-ceu { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 0%, #6b0a12 0%, #2a0509 50%, #0c0305 100%); }
+.intro-t20 .t20-nuvens span {
+  position: absolute; width: 90vmax; height: 40vmax; border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(170, 20, 35, .55), rgba(60, 5, 12, 0) 65%);
+  filter: blur(8px); animation: t20-nuvem 14s ease-in-out infinite alternate;
+}
+.intro-t20 .t20-nuvens span:nth-child(1) { left: -30vmax; top: -15vmax; }
+.intro-t20 .t20-nuvens span:nth-child(2) { right: -35vmax; top: -10vmax; animation-duration: 11s; animation-direction: alternate-reverse; }
+.intro-t20 .t20-nuvens span:nth-child(3) { left: 10vmax; top: 5vmax; width: 70vmax; animation-duration: 17s; opacity: .7; }
+@keyframes t20-nuvem { to { transform: translate(8vmax, 3vmax) scale(1.1); } }
+.intro-t20 .t20-chuva {
+  position: absolute; inset: -20% 0 0; opacity: .35;
+  background: repeating-linear-gradient(100deg, transparent 0 18px, rgba(255, 120, 120, .5) 18px 19px);
+  background-size: 100% 200px; animation: t20-chove .5s linear infinite;
+}
+@keyframes t20-chove { to { background-position: -40px 200px; } }
+.intro-t20 .t20-raio { position: absolute; left: 62%; top: 0; height: 60vh; opacity: 0; filter: drop-shadow(0 0 18px #ff3b3b); animation: t20-raio 3.2s steps(1) infinite; }
+@keyframes t20-raio { 0%, 61%, 66%, 100% { opacity: 0; } 62%, 65% { opacity: 1; } }
+.intro-t20 .t20-flash { position: absolute; inset: 0; background: #ff3b3b; opacity: 0; mix-blend-mode: screen; animation: t20-flash 3.2s infinite; }
+@keyframes t20-flash { 0%, 60%, 70%, 100% { opacity: 0; } 62% { opacity: .5; } 64% { opacity: .1; } 66% { opacity: .35; } }
+.intro-t20 .ig-titulo { font-weight: 900; letter-spacing: .04em; color: #fff; text-shadow: 0 0 30px rgba(255, 40, 40, .9), 0 4px 0 #6b0a0f; }
+.intro-t20 .ig-frase { font-family: 'Crimson Pro', serif; font-style: italic; color: #ffb3b3; }
+.intro-t20 .ig-barra-fill { background: linear-gradient(90deg, #6b0a12, #ff3b3b); }
+.intro-t20 .ig-botao {
+  font-family: 'Cinzel', serif; font-weight: 900; letter-spacing: .06em; font-size: 1.1rem; padding: 14px 32px; cursor: pointer;
+  color: #fff; background: linear-gradient(180deg, #e3262e, #8a0c12); border: 2px solid #ffb3b3; border-radius: 4px;
+  box-shadow: 0 0 30px rgba(255, 40, 40, .6);
+}
+.intro-t20.saindo .t20-flash { animation: none; opacity: 1; transition: opacity .9s ease-in; background: #fff; }
+.intro-t20.saindo .ig-centro { transition: transform 1.2s ease-in, opacity 1s; transform: scale(1.6); opacity: 0; }
